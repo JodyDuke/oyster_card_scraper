@@ -1,0 +1,30 @@
+
+            <h2>Sign in</h2>
+            <fieldset>
+                <legend class="sr-only">Enter your login credentials</legend>
+                <input type="hidden" value="a3ac81d4-80e8-4427-b348-a3d028dfdbe7" name="AppId">
+                <input type="hidden" value="a3ac81d4-80e8-4427-b348-a3d028dfdbe7" name="App">
+                <input type="hidden" value="https://contactless.tfl.gov.uk/DashBoard" name="ReturnUrl">
+                <input type="hidden" value="https://contactless.tfl.gov.uk/" name="ErrorUrl">
+
+                <div class="form-group">
+                    <label class="control-label required" for="startpage-login-username" aria-required="true">Username:</label>
+                    <input class="form-control" data-val="true" data-val-regex="The email address is not in a valid format" data-val-regex-pattern="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" data-val-required="The username field is required." id="startpage-login-username" name="UserName" placeholder="Username/email address" type="email" value="" aria-required="true">
+                    <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label required" for="startpage-login-password" aria-required="true">Password:</label>
+                    <input autocomplete="off" class="form-control" data-val="true" data-val-required="The password field is required." id="startpage-login-password" name="Password" placeholder="Password" type="password" aria-required="true">
+                    <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                </div>
+                
+
+                <div class="form-group text-right">
+                    <button type="submit" id="startpage-login-submit" value="Sign in" class="btn btn-primary">Submit</button>
+                </div>
+                <p>
+                    <a id="startpage-forgottenpassword-link" href="https://account.tfl.gov.uk/ForgotPassword">Forgot your password</a>?
+                </p>
+            </fieldset>
+        

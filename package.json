@@ -1,0 +1,11 @@
+{
+    "name": "webscraper-practise",
+    "version": "0.0.0",
+    "description": "A TFL oyster card webscraper to determine if the user has any incomplete journeys",
+    "main": "scrape-oyster.js",
+    "author": "Jody",
+    "license": "ISC",
+    "dependencies": {
+        "phantomjs-prebuilt": "latest"
+    }
+}
