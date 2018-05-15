@@ -6,6 +6,7 @@
     "author": "Jody",
     "license": "ISC",
     "dependencies": {
+        "mysql": "^2.15.0",
         "phantomjs-prebuilt": "latest"
     }
 }
