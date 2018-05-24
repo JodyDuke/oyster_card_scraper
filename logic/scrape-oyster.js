@@ -13,6 +13,7 @@ phantom.cookiesEnabled = true;
 phantom.javascriptEnabled = true;
 //Settings end
 
+
 console.log('All settings loaded, start with execution');
 page.onConsoleMessage = function(msg) {
     console.log(msg);
@@ -41,32 +42,54 @@ steps = [
         else {
             console.log('login failed')
             //push textindex past the rest of the function calls
-            testindex = 10
+            testindex = endTest
         }
     },
     function(){
-        console.log('setp 4: check for notifications')
+        console.log('step 4: check for notifications')
         page.evaluate(function() {
             var cards = document.getElementById("dashboard-notification-message").textContent;
             var oyster = document.getElementById("dashboard-oyster-notification-message").textContent.trim();
             if (oyster === 'You have 0 notifications' && cards === 'You have 0 notifications') {
-                console.log('You have 0 notifications')
-            } else {
-                console.log('You have a notification')
+                 console.log('You have no incomplete journeys')
+                 testIndex = endTest
             }
+            else {
+                console.log('You have a notification on your account')
+            }
+        })    
+    },
+    function(){
+        console.log('step 5: Open my cards')
+        page.open('https://contactless.tfl.gov.uk/MyCards', function(status) {
+            console.log('status: ', status)
+        })
+        //console.log(page.title);
+    },
+    function(){
+        console.log('step 6: read cards')
+        page.evaluate(function () {
+            var test = document.getElementById("headingsimplelayout-pageheading").textContent
+            var journeys = document.getElementsByClassName('text-warning')
+            console.log('warning: ', journeys[0].textContent.trim())
+            console.log(test)
         })
     }
+   
 ]
+
+var endTest = steps.length + 1;
 
 interval = setInterval(executeRequestsStepByStep, 50);
 
 function executeRequestsStepByStep() {
-    if (loadInProgress == false && typeof steps[testindex] == "function") {
+
+     if (loadInProgress == false && typeof steps[testindex] == "function") {
         //console.log("step " + (testindex + 1));
         steps[testindex]();
         testindex++;
     }
-    if (typeof steps[testindex] != "function") {
+    else if (typeof steps[testindex] != "function") {
         console.log("test complete!");
         phantom.exit();
     }
